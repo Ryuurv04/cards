@@ -210,7 +210,19 @@ export default function CardProfilePage() {
             Tarjeta de presentación digital NFC
           </p>
         </div>
-
+          <div className="py-4 text-center border-t border-slate-100 bg-slate-50">
+  <p className="text-[12px] text-slate-500 font-medium">
+    Creado por{' '}
+    <a
+      href="https://web-innova.site"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-slate-800 font-semibold hover:underline"
+    >
+      web-innova.site
+    </a>
+  </p>
+</div>
       </div>
     </main>
   );

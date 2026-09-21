@@ -28,7 +28,7 @@ export default function CreateCardPage() {
     // Identificador único
     slug: '',
   };
-
+const CARD_DOMAIN = process.env.NEXT_PUBLIC_CARD_DOMAIN || 'card.web-innova.site';
   const [formData, setFormData] = useState(initialFormState);
   const [loading, setLoading] = useState(false);
   const [feedback, setFeedback] = useState(null); // { type: 'success' | 'error', message: '', url: '' }
@@ -72,7 +72,7 @@ export default function CreateCardPage() {
       setFeedback({
         type: 'success',
         message: '¡Tarjeta registrada exitosamente!',
-        url: resData?.data?.url || `card.dominio.com/${formData.slug}`,
+        url: resData?.data?.url || `${CARD_DOMAIN}/${formData.slug}`,
       });
 
       // Opcional: resetear formulario tras éxito
@@ -139,7 +139,7 @@ export default function CreateCardPage() {
             </label>
             <div className="flex items-center mt-1">
               <span className="text-slate-400 text-sm font-mono select-none mr-2">
-                card.dominio.com/
+                {CARD_DOMAIN}/
               </span>
               <input
                 type="text"
