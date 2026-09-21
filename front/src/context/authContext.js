@@ -33,7 +33,9 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (email, password) => {
         setIsLoading(true);
+        console.log("Attempting login with email:", email);
         const { data } = await authService.login({ email, password });
+        console.log("Login data:", data);
         setRequiereRoleSelection(data.requireRoleSelection);
         if(data.requireRoleSelection === true){
             setRoles(data.roles);

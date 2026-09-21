@@ -20,6 +20,14 @@ export const authService = {
     cambiarPassword: (token, password) => api.post('/usuarios/cambiar-password', { token, password }),
 };
 
+export const cardsService = {
+    createCard: (cardData) => api.post('/cards', cardData),
+    // Obtener los datos públicos de la tarjeta por slug
+  getPublicCard: (slug) => api.get(`/cards/public/${slug}`),
+  
+  // Helper para armar la URL directa de descarga del contacto (.vcf)
+  getVCardUrl: (slug) => `${api.defaults.baseURL}/cards/public/${slug}/vcard`,
+};
 export const registroService = {
     validarRuc: (ruc, tipoContribuyente) => api.get('/registro/ruc', { params: { ruc, tipoContribuyente } }),
     enviarRegistro: (formData) => api.post('/registro', formData),
